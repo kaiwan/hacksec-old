@@ -2,7 +2,7 @@
 # ASLR_show.sh
 # ASLR = Address Space Layout Randomization
 #
-# Last Updated : 09Oct2018
+# Last Updated : 24Feb2019
 # Created      : 15Mar2017
 # 
 # Author:
@@ -80,8 +80,21 @@ mn=$(uname -r |awk -F"." '{print $2}')
 grep -q -w "nokaslr" /proc/cmdline && {
   echo "Kernel ASLR (KASLR) turned OFF! (unusual)"
 }  || {
-  KASLR=$(grep CONFIG_RANDOMIZE_BASE /boot/config-$(uname -r) |awk -F"=" '{print $2}')
-  if [ ${KASLR} = 'y' ]; then
+
+  # Attenpt to gain access to /proc/config.gz
+  sudo modprobe configs
+  if [ -f /proc/config.gz ] ; then
+    gunzip -c /proc/config.gz > /tmp/kconfig
+    CONF=/tmp/kconfig
+  elif [ -f /boot/config-$(uname -r) ] ; then
+    CONF=/boot/config-$(uname -r)
+  else
+    echo "${name}: oops, cannot gain access to kernel config, aborting..."
+    exit 1
+  fi
+
+  KASLR=$(grep CONFIG_RANDOMIZE_BASE ${CONF} |awk -F"=" '{print $2}')
+  if [ "${KASLR}" = "y" ]; then
 	  echo "Kernel ASLR (KASLR) is On [default]"
   else 
 	grep -q -w "kaslr" /proc/cmdline && echo "Kernel ASLR (KASLR) turned ON via cmdline" ||
@@ -89,8 +102,14 @@ grep -q -w "nokaslr" /proc/cmdline && {
   fi
 }
 
-echo -n "ASLR (Address Space Layout Randomization) setting now is: "
-cat /proc/sys/kernel/randomize_va_space
+UASLR=$(cat /proc/sys/kernel/randomize_va_space)
+echo "Current userspace ASLR (Address Space Layout Randomization) setting : ${UASLR}"
+case "${UASLR}" in
+ 0) echo " => userspace ASLR is turned OFF" ;;
+ 1) echo " => userspace ASLR ON for stack, VDSO, shmem regions" ;;
+ 2) echo " => userspace ASLR ON for stack, VDSO, shmem regions and data segments [OS default]" ;;
+ *) echo " => <invalid value?>" ;;
+esac
 
 [ $# -eq 1 ] && {
  [ $1 -ne 0 -a $1 -ne 1 -a $1 -ne 2 ] && {
