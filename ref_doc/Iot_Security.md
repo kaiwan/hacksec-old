@@ -22,12 +22,17 @@
 		- a simplistic kernel exploit (via mmap) - eg. of a privilege escalation (privesc) attack
 	- Modern OS Hardening / Countermeasures
 
-- Tools summary
-	- github.com/kaiwan
-		- [vasu_grapher](https://github.com/kaiwan/vasu_grapher)   [under dev]
+**A few tools : summary**  
+	- github.com/kaiwan  
+	
+  * - [vasu_grapher](https://github.com/kaiwan/vasu_grapher)   [under dev]  
 		- [stanly](https://github.com/kaiwan/stanly), [cquats](https://github.com/kaiwan/cquats) [under dev]
 	- Static Analysis
-		- SonarQube / [SonarCloud](https://sonarcloud.io/about)
+		- commercial:
+		     - SonarQube / [SonarCloud](https://sonarcloud.io/about) (free for OSS!)
+		     - Coverity, Klocwork, ...
+		- free and OSS:
+		      - coccinelle, D Wheeler's [flawfinder](), smatch, cppcheck, etc
 	- [lynis](https://cisofy.com/downloads/lynis/), [checksec.sh](https://github.com/slimm609/checksec.sh), ...
 	- [GDB Enhanced Features (a.k.a. GEF)](https://github.com/hugsy/gef)
 	- IoT search engines (shodan.io, thingful.net)
@@ -35,7 +40,6 @@
 <hr>
 *Real-world Hacks*
 
-- IOT SECURITY: HARD PROBLEM, NO EASY ANSWERS Fahmida Y. Rashid](https://duo.com/decipher/iot-security-hard-problem-no-easy-answers)
 - _[IoT Security Wiki : One Stop for IoT Security Resources](https://iotsecuritywiki.com/)_
 Huge number of resources (whitepapers, slides, videos, etc) on IoT security
 
@@ -59,13 +63,18 @@ _IoT devices are actually general purpose, networked computers in disguise, runn
 *<< See pg 6, ‘Ch 5: COMMON VULNERABILITIES AND EXPOSURES FOR IoT DEVICES’ ; old and new vulnerabilities mentioned.
 Pg 9: ‘Disclosures’ - the vulns uncovered in actual products >>*
 
-_**Just too much. Bottom line: critical to perform adequate pentesting – either outsource or DIY**_
+IOT SECURITY: HARD PROBLEM, NO EASY ANSWERS Fahmida Y. Rashid](https://duo.com/decipher/iot-security-hard-problem-no-easy-answers)
+
+_**Just too much; the Bottom Line:   
+It's critical to perform adequate pentesting – either outsource or DIY.**_
 <hr>
-Writing Kernel Exploits
+In general, defeating low-level hardening on x86:  
+ ['Linux (x86) Exploit Development Series, sploitfun'](https://sploitfun.wordpress.com/2015/06/26/linux-x86-exploit-development-tutorial-series/)  
+
+*Writing Kernel Exploits*
 
 - ["Kernel Driver mmap Handler Exploitation" \[PDF\]](https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-mmap-exploitation-whitepaper-2017-09-18.pdf)
 - ["Exploiting Stack Overflows in the Linux Kernel" [PDF]](https://www.exploit-db.com/docs/english/15634-exploiting-stack-overflows-in-the-linux-kernel.pdf)
 - ... many more; many, many here: ["Linux Kernel Exploitation"](https://github.com/xairy/linux-kernel-exploitation)
 
 <hr>
-> Written with [StackEdit](https://stackedit.io/).
