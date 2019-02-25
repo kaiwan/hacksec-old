@@ -1,7 +1,7 @@
-﻿**IoT Security - a brief Presentation**
+**IoT Security - a brief Presentation**
 
-- A huge ecosystem 
-	- we only talk about security from the developer / code viewpoint, that too, systems programming
+- A huge ecosystem
+	- we only talk about security from the developer / code viewpoint; and within that, Linux systems and kernel programming
 
 - Real-world Hacks
 	- websites
@@ -17,19 +17,19 @@
 			- process stack
 			- a simple BoF
 				- the danger
-	- Demo on the Raspberry Pi
+	- Demo on the Raspberry Pi 3
 		- BoF address re-vectoring with GDB
+		- a simplistic kernel exploit (via mmap) - eg. of a privilege escalation (privesc) attack
 	- Modern OS Hardening / Countermeasures
-	
-	- a simple kernel exploit - privilege escalation (privesc) attack - (mmap-based) resulting in root
 
 - Tools summary
 	- github.com/kaiwan
-		- vasu_grapher   [under dev]
-		- stanly [under dev]
+		- [vasu_grapher](https://github.com/kaiwan/vasu_grapher)   [under dev]
+		- [stanly](https://github.com/kaiwan/stanly), [cquats](https://github.com/kaiwan/cquats) [under dev]
 	- Static Analysis
-		- SonarCube / SonarCloud
-	- lynis, checksec.sh, ...
+		- SonarQube / [SonarCloud](https://sonarcloud.io/about)
+	- [lynis](https://cisofy.com/downloads/lynis/), [checksec.sh](https://github.com/slimm609/checksec.sh), ...
+	- [GDB Enhanced Features (a.k.a. GEF)](https://github.com/hugsy/gef)
 	- IoT search engines (shodan.io, thingful.net)
 
 <hr>
