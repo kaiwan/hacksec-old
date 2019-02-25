@@ -99,7 +99,7 @@ rm -f ${TMP}
 ### starts here
 
 [ $# -lt 1 ] && {
-  echo "Usage: ${name} start-folder(s)"
+  echo "Usage: ${name} code-start-folder(s)"
   exit 1
 }
 [ ! -d $1 ] && {
