@@ -3,6 +3,8 @@ mmap_exploit demo
 Ref: "Kernel Driver mmap Handler Exploitation" :
  https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-mmap-exploitation-whitepaper-2017-09-18.pdf
 
+32-bit only; tested on a Raspberry Pi 3 Model B+.
+
 *Highly* recommend you first read this article fully. Brief TOO below.
 ----------------------------------------------------------------
 Procedure:

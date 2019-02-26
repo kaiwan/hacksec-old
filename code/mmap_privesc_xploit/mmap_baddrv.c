@@ -1,15 +1,16 @@
 /*
  * mmap_baddrv.c
  *
- * Ref: https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-mmap-exploitation-whitepaper-2017-09-18.pdf
+ * Ref and Credits:
+ * https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-mmap-exploitation-whitepaper-2017-09-18.pdf
  *
  * Simple demo char device driver for memory device. Registers itself as a 'misc'
  * driver.. Here, the feature is the buggy! 'mmap' implementation.
- * This lack of valdity checking (by default, unless we pass module param check=1),
+ * This lack of valdity checking (by default, unless we pass module param 'check=1'),
  * is the root cause of the exploit being possible.
  * Of course, this exploit will easily be defeated by even minimal 'hardening':
- * proper permissions on the device file, presence of LSMs (like SELinux/AppArmor/etc),
- * etc.
+ * proper permissions on the device file (like 0664), presence of LSMs (like
+ * SELinux/AppArmor/etc), etc.
  */
 #include <linux/kernel.h>
 #include <linux/module.h>
@@ -103,7 +104,7 @@ static int __init mmap_baddrv_init_module(void)
 {
 	int ret = 0;
 	pr_info("%s: initializing ... validity checking is %s\n",
-		DRVNAME, check == 1?"On":"Off");
+		DRVNAME, check == 1?"ON":"OFF");
 
 	/* Register the device with the kernel;s 'misc' framework */
 	ret = misc_register(&mmap_baddrv_miscdev);
@@ -126,5 +127,5 @@ module_init(mmap_baddrv_init_module);
 module_exit(mmap_baddrv_cleanup_module);
 
 MODULE_AUTHOR("Kaiwan NB");
-MODULE_DESCRIPTION("Simple mmap kernel exploit demo; credits above");
+MODULE_DESCRIPTION("Simple mmap kernel exploit demo; not mine, credits above");
 MODULE_LICENSE("Dual MIT/GPL");

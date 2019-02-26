@@ -1,10 +1,15 @@
 **IoT Security - a brief Presentation**
 
+- [Overview of the Most Popular Smart Home Devices](http://iotlineup.com/)  
+- IoT search engines : [shodan.io](https://www.shodan.io/), [thingful.net](http://www.thingful.net/)
+
+
 - A huge ecosystem
 	- we only talk about security from the developer / code viewpoint; and within that, Linux systems and kernel programming
 
 - Real-world Hacks
-	- websites
+	- websites, hacks  
+
 - Walk-through a slide deck on 
 	- Terminology
 	- Current State
@@ -22,6 +27,7 @@
 		- a simplistic kernel exploit (via mmap) - eg. of a privilege escalation (privesc) attack
 	- Modern OS Hardening / Countermeasures
 
+<hr>
 **A few tools : summary**  
 	- github.com/kaiwan  
 	
@@ -78,3 +84,4 @@ In general, defeating low-level hardening on x86:
 - ... many more; many, many here: ["Linux Kernel Exploitation"](https://github.com/xairy/linux-kernel-exploitation)
 
 <hr>
+[My (Kaiwan NB) tech blog; do subscribe! :-)](https://kaiwantech.wordpress.com/)
